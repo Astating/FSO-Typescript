@@ -7,4 +7,7 @@ function calculateBmi(heightInCentimeters: number, weight: number): string {
     if (bmi > 25) return "Overweight";
 }
 
-console.log(calculateBmi(181, 60));
+const height: number = Number(process.argv[2]);
+const weight: number = Number(process.argv[3]);
+
+console.log(calculateBmi(height, weight));

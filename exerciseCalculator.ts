@@ -9,7 +9,7 @@ function calculateExercises(dailyExerciseHours: Array<number>, dailyTarget: numb
 
     const success: boolean = average >= dailyTarget;
 
-    const rating: number = (() => {
+    const rating: 1 | 2 | 3 = (() => {
         if (success) return 3;
         if (average > dailyTarget / 2) return 2;
         if (average <= dailyTarget / 2) return 1;
@@ -34,4 +34,13 @@ function calculateExercises(dailyExerciseHours: Array<number>, dailyTarget: numb
     return {periodLength, trainingDays, success, rating, ratingDescription, target: dailyTarget, average };
 }
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+const target: number = Number(process.argv[2]);
+const hours: number[] = (() => {
+    const processedArg = [];
+    for (let i = 3 ; i < process.argv.length ; i++) {
+        processedArg.push(Number(process.argv[i]));
+    }
+    return processedArg;
+})();
+
+console.log(calculateExercises(hours, target));
