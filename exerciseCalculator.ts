@@ -10,9 +10,9 @@ function calculateExercises(dailyExerciseHours: Array<number>, dailyTarget: numb
     const success: boolean = average >= dailyTarget;
 
     const rating: 1 | 2 | 3 = (() => {
-        if (success) return 3;
-        if (average > dailyTarget / 2) return 2;
-        if (average <= dailyTarget / 2) return 1;
+        if (success) {return 3;}
+        else if (average > dailyTarget / 2) {return 2;}
+        else return 1;
     })();
 
     const ratingDescription: string = (() => {
