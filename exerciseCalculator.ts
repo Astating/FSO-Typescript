@@ -24,7 +24,7 @@ function calculateExercises(dailyExerciseHours: Array<number>, dailyTarget: numb
                 return "Eh, you were not that far from your goal!";
                 break;
             case 3:
-                return "Success!"
+                return "Success!";
                 break;
             default:
                 return "Hmm, this should not happen";
@@ -54,17 +54,17 @@ const parseArguments = (args: Array<string>): ExerciseValues => {
         return {
           target: Number(args[2]),
           dailyHours: hours
-        }
+        };
       } else {
         throw new Error('Provided values were not numbers!');
       }
-}
+};
 
 try {
     const { target, dailyHours } = parseArguments(process.argv);
     console.log(calculateExercises(dailyHours, target));
 } catch (error: unknown) {
-    let errorMessage = 'Something bad happened.'
+    let errorMessage = 'Something bad happened.';
     if (error instanceof Error) {
       errorMessage += ' Error: ' + error.message;
     }
