@@ -1,0 +1,55 @@
+POST http://localhost:3003/calculate
+content-type: application/json
+
+{
+    "target": "9",
+    "daily_exercises": [5, "7", "3", 1]
+}
+
+### Missing target
+
+POST http://localhost:3003/calculate
+content-type: application/json
+
+{
+    "daily_exercises": [5, "7", "3", 1]
+}
+
+### Missing daily exercises
+
+POST http://localhost:3003/calculate
+content-type: application/json
+
+{
+    "target": "9"
+}
+
+### Malformatted target
+
+POST http://localhost:3003/calculate
+content-type: application/json
+
+{
+    "target": "D",
+    "daily_exercises": [5, "7", "3", 1]
+}
+
+### Malformatted daily exercises (not an array)
+
+POST http://localhost:3003/calculate
+content-type: application/json
+
+{
+    "target": "9",
+    "daily_exercises": 9
+}
+
+### Malformatted daily exercises
+
+POST http://localhost:3003/calculate
+content-type: application/json
+
+{
+    "target": "9",
+    "daily_exercises": [5, "7", "nine", 1]
+}
